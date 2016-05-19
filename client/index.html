@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html ng-app='Myapp'>
+<head>
+	<title></title>
+  <style type="text/css">
+  * {
+  margin: 0px;
+  padding: 0px;
+  }
+  .container{
+    width: 950px;
+    margin: 0px auto;
+  }
+  .product_create, .product_box{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+  }
+  .product_box{
+    width: 620px;
+  }
+  .product_create{
+    border: 1px solid black;
+    width: 185px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  .display_products{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    text-align: center;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  #add{
+    margin-top: 10px;
+    margin-left: 120px;
+  }
+  #number{
+    width: 160px;
+  }
+  img{
+    width: 100px;
+    height: 100px;
+  }
+  .left_dashboard, .right_dashboard{
+    display: inline-block;
+    margin-top: 10px;
+  }
+  .left_dashboard{
+    margin-top: 10px;
+    height: 700px;
+    width: 160px;
+/*    border: 1px solid black;*/
+  }
+  .right_dashboard{
+    margin-left: 10px;
+    vertical-align: top;
+/*    border: 1px solid black;*/
+  }
+  .new_customers{
+    margin-top: 30px;
+  }
+  .recent_orders{
+    margin-top: 30px;
+  }
+  #orders{
+    margin-left: 15px;
+  }
+  #customers{
+    margin-left: 15px;
+  }
+  strong{
+    text-decoration: underline;
+  }
+  #showmore{
+    margin-left: 280px;
+
+  }
+</style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"/></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+      padding: 10px;
+      margin-top: 20px;
+    } 
+  </style>
+  <link rel="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+  	<script src='app.js'></script>
+  	<script src = "controllers/customers/mCustomerController.js"></script>
+  	<script src = "factories/customerFactory.js"></script>
+    <script src = "controllers/customers/mOrderController.js"></script>
+    <script src = "factories/orderFactory.js"></script>
+    <script src = "controllers/customers/mDashboardController.js"></script>
+    <script src = "controllers/customers/mProductsController.js"></script>
+    <script src = "factories/productFactory.js"></script>
+
+</head>
+<body>
+	<div class='container'>
+		<a href='/'>Dashboard</a> | <a href='#/products'>Products</a> | <a href='#/orders'>Orders</a> | <a href='#/customers'>Customers</a> | <a href='#'>Settings</a> 
+    <div ng-show = 'error'>
+    {{error}}
+    </div>
+		<div ng-view></div>
+
+</body>
+</html>

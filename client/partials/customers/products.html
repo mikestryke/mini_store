@@ -1,0 +1,77 @@
+<style type="text/css">
+	* {
+	margin: 0px;
+	padding: 0px;
+	}
+	.container{
+		width: 950px;
+		margin: 0px auto;
+	}
+	.product_create, .product_box{
+		display: inline-block;
+		vertical-align: top;
+		margin-top: 10px;
+	}
+	.product_box{
+		width: 700px;
+	}
+	.product_create{
+		border: 1px solid black;
+		width: 185px;
+		padding: 10px;
+		margin-top: 10px;
+	}
+	.display_products{
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+		text-align: center;
+		margin-left: 20px;
+		margin-bottom: 20px;
+	}
+	#add{
+		margin-top: 10px;
+		margin-left: 120px;
+	}
+	#number{
+		width: 160px;
+	}
+	img{
+		width: 100px;
+		height: 100px;
+	}
+	.left_dashboard{
+		height: 700px;
+		width: 100px;
+		border: 1px solid black;
+	}
+	.recent_orders{
+		margin-top: 10px;
+	}
+</style>
+<div class='container'>
+	<div class='product_create'>
+		<strong>Add a new product</strong>
+		<form>
+			<p>Name:</p>
+			<input type='text' ng-model='new_product.name' placeholder="name...">
+			<p>Image (url)</p>
+			<input type='text' ng-model='new_product.url' placeholder="http://">
+			<p>Description:</p>
+			<textarea ng-model='new_product.description'></textarea>
+			<p>Initial Quantity:</p>
+			<input id='number' type='number' ng-model='new_product.quantity' min='1' max='100'><br>
+			<input id='add' type='submit' value='Add' ng-click='addProduct()'>
+		</form>
+	</div>
+	<div class='product_box'>
+		<div class='display_products' ng-repeat='product in products | filter: filter_name track by $index'>
+			<img src="{{product.url}}" alt="some_text">
+			<p>{{product.name}}</p>
+			<p>({{product.quantity}} left)</p>
+			
+		</div>
+	</div>
+</div>
+
+

@@ -1,0 +1,27 @@
+<div class='container'>
+	<div class='left_dashboard'>
+		<input id='dashboard_search' type-'text' ng-model='filter_name' placeholder='search...'>
+	</div>
+	<div class='right_dashboard'>
+		<div class='product_box'>
+				<div class='display_products' ng-repeat='product in products | filter: filter_name track by $index'>
+					<img src="{{product.url}}" alt="some_text">
+					<p>{{product.name}}</p>
+					<p>({{product.quantity}} left)</p>
+				</div>
+				<a id='showmore' href='#/products'>show more...</a>
+				
+			</div>
+		<div class='recent_orders'>
+			<strong>Recent Orders</strong>
+			<p id='orders' ng-repeat='order in orders'>{{order.name}} purchased {{order.quantity}} {{order.product}}(s) 
+			on {{order.date | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+			<a id='showmore' href='#/orders'>show more...</a>
+		</div>
+		<div class='new_customers'>
+			<strong>New Customers</strong>
+			<p id='customers' ng-repeat='customer in customers'>{{customer.name}} joined the store on {{customer.date | date:"MM/dd/yyyy 'at' h:mma"}}</p>
+			<a id='showmore' href='#/customers'>show more...</a>
+		</div>
+	</div>
+</div>
